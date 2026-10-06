@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Факультет природничих наук{% endblock %}</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f5f7f5; color: #222; }
+    header { background: #2e6b4f; padding: 15px 30px; }
+    header a { color: white; margin-right: 20px; text-decoration: none; font-weight: bold; }
+    header a:hover { text-decoration: underline; }
+    main { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+    .card { background: white; padding: 15px 20px; margin-bottom: 15px;
+            border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.15); }
+    .card h2 { margin-top: 0; }
+    a { color: #2e6b4f; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="{% url 'home' %}">Головна</a>
+    <a href="{% url 'department_list' %}">Кафедри</a>
+    <a href="{% url 'program_list' %}">Спеціальності</a>
+    <a href="{% url 'exchange_list' %}">Обмін</a>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
