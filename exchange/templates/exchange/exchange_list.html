@@ -1,0 +1,24 @@
+{% extends "faculty/base.html" %}
+{% block title %}Програми обміну{% endblock %}
+{% block content %}
+  <h1>Програми обміну</h1>
+  {% for p in programs %}
+    <div class="card">
+      <h2>{{ p.university }}</h2>
+      <p>Країна: {{ p.country }}</p>
+      <p>Мови навчання: {{ p.languages }}</p>
+      <p>Кількість місць: {{ p.seats }}</p>
+      <p>Дедлайн: {{ p.deadline|date:"d.m.Y" }}</p>
+      <p>
+        {% if p.is_open %}
+          <strong style="color: #2e6b4f;">Прийом триває</strong>
+        {% else %}
+          <strong style="color: #b03030;">Прийом завершено</strong>
+        {% endif %}
+      </p>
+      <p>{{ p.description }}</p>
+    </div>
+  {% empty %}
+    <p>Програм поки немає.</p>
+  {% endfor %}
+{% endblock %}
